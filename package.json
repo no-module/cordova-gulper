@@ -1,0 +1,27 @@
+{
+  "name": "cordova-gulper",
+  "version": "0.0.1",
+  "description": "cordova gulper",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^0.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/no-module/cordova-gulper.git"
+  },
+  "keywords": [
+    "cordova",
+    "gulp"
+  ],
+  "author": "jackong <jackongc@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/no-module/cordova-gulper/issues"
+  },
+  "homepage": "https://github.com/no-module/cordova-gulper"
+}
