@@ -27,7 +27,8 @@ function gulper(gulp, pkg) {
 	});
 
 	gulp.task('run browser', function(cb) {
-		exec('cordova run browser', cb);
+		exec('cordova run browser');
+		cb();
 	});
 
 	gulp.task('dev', ['build browser', 'run browser'], function() {
