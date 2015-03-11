@@ -44,7 +44,7 @@ function gulper(gulp, pkg) {
 	});
 
 	gulp.task('sign', ['build apk'], function(cb) {
-		exec(util.format('jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore android-release-key.keystore %s alias_name', pkg), cb);
+		exec(util.format('jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore android-release-key.keystore %s alias_name', apk), cb);
 	});
 
 	gulp.task('release', ['sign'], function(cb) {
