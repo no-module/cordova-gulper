@@ -1,4 +1,5 @@
 var exec = require('child_process').exec;
+var util = require('util');
 var async = require('async');
 
 function gulper(gulp, pkg) {
@@ -34,6 +35,20 @@ function gulper(gulp, pkg) {
 	gulp.task('dev', ['build browser', 'run browser'], function() {
 		gulp
 		.watch('www/**', ['build browser']);
+	});
+
+	var apk = 'platforms/android/build/outputs/apk/android-armv7-release-unsigned.apk';
+
+	gulp.task('build apk', function(cb) {
+		exec(util.format('cordova build --release android'), cb);
+	});
+
+	gulp.task('sign', ['build apk'], function(cb) {
+		exec(util.format('jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore android-release-key.keystore %s alias_name', pkg), cb);
+	});
+
+	gulp.task('release', ['sign'], function(cb) {
+		exec(util.format('zipalign -v 4  %s %s.apk', apk, pkg.name), cb);
 	});
 }
 
