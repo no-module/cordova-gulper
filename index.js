@@ -37,7 +37,7 @@ function gulper(gulp, pkg) {
 		.watch('www/**', ['build browser']);
 	});
 
-	var apk = 'platforms/android/android/build/outputs/apk/android-armv7-debug.apk';
+	var apk = 'platforms/android/build/outputs/apk/android-armv7-debug.apk';
 
 	gulp.task('build apk', function(cb) {
 		exec(util.format('cordova build --release android'), cb);
